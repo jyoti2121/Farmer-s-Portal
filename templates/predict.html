@@ -1,0 +1,181 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block content %}
+
+<link href="{% static 'css/material-dashboard.css?v=2.1.2' %}" rel="stylesheet" />
+<!-- breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="w3layouts_breadcrumbs_left">
+            <ul>
+                <li><i class="fa fa-home" aria-hidden="true"></i><a href="index">Home</a><span>/</span></li>
+                <li><i class="fa fa-envelope-o" aria-hidden="true"></i>Price Predicion</li>
+            </ul>
+        </div>
+        <div class="w3layouts_breadcrumbs_right">
+            <h2>Price Prediction</h2>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<!-- //breadcrumbs -->
+<div class="welcome">
+    <div class="container">
+        <h3 class="agileits_w3layouts_head">Price <span>Prediction</span>
+        <div class="w3_agile_image">
+            <img src="{% static 'images/1.png' %}" alt=" " class="img-responsive" />
+        </div>
+    </div>
+</div>
+<h4 class="#e0f7fa cyan lighten-5">Top Gainers(Current trends)</h4>
+<div class="content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table">
+                              <thead class=" text-primary">
+                                <th>Item Name</th>
+                                <th>Price (per Qtl.)</th>
+                                <th>Change</th> 
+                                </thead>
+                              <tbody>
+                              {% for value in context.top5 %}
+                                <tr>
+                                  <td>{{value.name}}</td>
+                                  <td>₹{{value.month}}</td>
+                                  <td class="valign-wrapper">{{value.change}}% <img src="{% static 'p/gain-icon.png' %}" height="25" width="25"></td>
+                                </tr>
+                              {% endfor %}
+                              </tbody>
+                              </table>
+                              </div></div></div>
+  <h4 class="#e0f7fa cyan lighten-5">Top Losers(Current trends)</h4>
+  <div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                  <th>Item Name</th>
+                                  <th>Price (per Qtl.)</th>
+                                  <th>Change</th> 
+                                  </thead>
+                                <tbody>
+                                  {% for value in context.bottom5 %}
+                                    <tr>
+                                    <td>{{value.name}}</td>
+                                    <td>₹{{value.month}}</td>
+                                    <td class="valign-wrapper">{{value.change}}% <img src="{% static 'p/loss-icon.png' %}" height="25" width="25"></td>
+                                  </tr>
+                                {% endfor %}
+                                </tbody>
+                              </table></div></div></div></div></div></div>
+</div>
+</div>
+         <script>
+          
+          function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+           }
+          function updateTime(i){
+            $('#time').load('http://localhost:5000/ticker/'+0+ '/' + i);
+          }
+
+          function updateCrop1(i){
+            $('#crop1').load('http://localhost:5000/ticker/'+ 1 + '/' + i);
+          }
+
+          function updatePrice1(i){
+            $('#price1').load('http://localhost:5000/ticker/'+ 2 + '/' + i);
+          }
+
+          function updateChange1(i){
+            $("#change1").attr("src","../static/gain-icon.png");
+            $('#pos-change').load('http://localhost:5000/ticker/'+ 3 + '/'  + i);
+
+          }
+
+          function updateCrop2(i){
+            $('#crop2').load('http://localhost:5000/ticker/'+ 4 + '/'  + i);
+          }
+
+          function updatePrice2(i){
+            $('#price2').load('http://localhost:5000/ticker/'+ 5 + '/'  + i);
+          }
+
+          function updateChange2(i){
+            $("#change2").attr("src","../static/loss-icon.png");
+            $('#neg-change').load('http://localhost:5000/ticker/'+ 6 + '/'  + i);
+
+          }
+        </script>
+
+            <script>
+                    var i = 0
+                    setInterval(async function(){
+                    i = (i+1)%5;
+                    updateTime(i);
+
+                    updateCrop1(i);
+                    await sleep(200);
+
+                    updatePrice1(i);
+                    await sleep(200);
+
+                    updateChange1(i);
+                    await sleep(200);
+
+                    updateCrop2(i);
+                    await sleep(200);
+
+                    updatePrice2(i);
+                    await sleep(200);
+
+                    updateChange2(i);
+                    await sleep(200);
+
+                    /*
+                    setTimeout(updateCrop1(i), 100);
+                    setTimeout(updatePrice1(i), 300);
+                    setTimeout(updateChange1(i), 500);
+                    setTimeout(updateCrop2(i), 700);
+                    setTimeout(updatePrice2(i), 800);
+                    setTimeout(updateChange2(i), 900);
+                    */
+
+                    }, 4000);
+
+            </script>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <h2>Explore by commodity</h2><br>
+  <p class="agile_para"></p>
+  <div class="agileits_mail_grid_right1 agile_mail_grid_right1">
+    <form action="" method="POST">
+        {% csrf_token %}
+      <span>
+        <i>Crop Name</i>
+        <input type="text" name="name" placeholder="Enter Crop Name">
+      </span>
+  </form></div></div>
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $('.slider').slider({full_width :true});
+  });
+</script>
+  </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</html>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block content %}
+<!-- breadcrumbs -->
+	<div class="breadcrumbs">
+		<div class="container">
+			<div class="w3layouts_breadcrumbs_left">
+				<ul>
+					<li><i class="fa fa-home" aria-hidden="true"></i><a href="index">Home</a><span>/</span></li>
+					<li><i class="fa fa-picture-o" aria-hidden="true"></i>Gallery</li>
+				</ul>
+			</div>
+			<div class="w3layouts_breadcrumbs_right">
+				<h2>Gallery</h2>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!-- //breadcrumbs -->
+<!-- gallery -->
+	<div class="welcome">
+		<div class="container">
+			<h3 class="agileits_w3layouts_head">Our <span>Gallery</span></h3>
+			<div class="w3_agile_image">
+				<img src="{% static 'images/1.png' %}" alt=" " class="img-responsive" />
+			</div>
+			<p class="agile_para"></p>
+			<div class="w3layouts_gallery_grids">	
+				{% for gallery in gallery1 %}
+				<div class="col-md-4 w3layouts_gallery_grid">
+					<a href="{% static 'images/3.jpg' %}" class="lsb-preview" data-lsb-group="header">
+						<div class="w3layouts_news_grid">
+							<img src="{{gallery.gallery_image.url}}" alt=" " class="img-responsive">
+							<div class="w3layouts_news_grid_pos">
+								<div class="wthree_text"><h3>{{gallery.gallery_text}}</h3></div>
+							</div>
+						</div>
+					</a>
+				</div>
+				{% endfor %}
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+<!-- //gallery -->
+	<script src="{% static 'js/lsb.min.js' %}"></script>
+	<script>
+	$(window).load(function() {
+		  $.fn.lightspeedBox();
+		});
+	</script>
+{% endblock %}

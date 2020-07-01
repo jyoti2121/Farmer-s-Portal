@@ -1,0 +1,202 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- banner-bottom -->
+	<div class="banner-bottom">
+		<div class="col-md-4 agileits_banner_bottom_left">
+			<div class="agileinfo_banner_bottom_pos">
+				<div class="w3_agileits_banner_bottom_pos_grid">
+					<div class="col-xs-4 wthree_banner_bottom_grid_left">
+						<div class="agile_banner_bottom_grid_left_grid hvr-radial-out">
+							<i class="fa fa-pagelines" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="col-xs-8 wthree_banner_bottom_grid_right">	
+						<h4>Free Consultation</h4>
+						<p>Feel free to contact us for all your queries.</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 agileits_banner_bottom_left1">
+			<div class="agileinfo_banner_bottom_pos">
+				<div class="w3_agileits_banner_bottom_pos_grid">
+					<div class="col-xs-4 wthree_banner_bottom_grid_left">
+						<div class="agile_banner_bottom_grid_left_grid hvr-radial-out">
+							<i class="fa fa-certificate" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="col-xs-8 wthree_banner_bottom_grid_right">	
+						<h4>Certified Products</h4>
+						<p>Auntheticate products and highly effective services.</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 agileits_banner_bottom_left2">
+			<div class="agileinfo_banner_bottom_pos">
+				<div class="w3_agileits_banner_bottom_pos_grid">
+					<div class="col-xs-4 wthree_banner_bottom_grid_left">
+						<div class="agile_banner_bottom_grid_left_grid hvr-radial-out">
+							<i class="fa fa-yelp" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="col-xs-8 wthree_banner_bottom_grid_right">	
+						<h4>Free Helpline</h4>
+						<p>24*7 multi-language customer care support.</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+<!-- //banner-bottom -->
+<!-- welcome -->
+	<div class="welcome">
+		<div class="container">
+			<h3 class="agileits_w3layouts_head">Welcome to our <span>Plantation</span></h3>
+			<div class="w3_agile_image">
+				<img src="{% static 'images/1.png' %}" alt=" " class="img-responsive" />
+			</div>
+			<p class="agile_para">All the products are Genuine and Certified.</p>
+		</div>
+		<div class="mis-stage w3_agileits_welcome_grids"> 
+			<!-- The element to select and apply miSlider to - the class is optional -->
+			<ol class="mis-slider">
+				{% for plant in context.plant1 %}
+				<li class="mis-slide"> 
+					<figure> 
+						<img src="{{plant.plantation_image.url}}" alt=" " class="img-responsive" />
+						<figcaption>{{plant.plantation_name}}</figcaption>
+					</figure>
+				</li>
+				{% endfor %}
+			</ol>
+		</div>
+	</div>
+<!-- //welcome -->
+<!-- welcome-bottom -->
+	<div id="welcome_bottom" class="welcome-bottom">
+		<div class="col-md-6 wthree_welcome_bottom_left">
+			<h3>we work hard and make our country <span>greenery</span></h3>
+			<p>Our Happy Customers and Products</p>
+			<div class="col-md-6 wthree_welcome_bottom_left_grid">
+				<div class="w3l_social_icon_gridl">
+					<img src="{% static 'images/8.png' %}" alt=" " class="img-responsive" />
+				</div>
+				<div class="w3l_social_icon_gridr">
+					<h4 class="counter">23,536</h4>
+				</div>
+				<div class="clearfix"> </div>
+				<div class="w3l_social_icon_grid_pos">
+					<label>-</label>
+				</div>
+			</div>
+			<div class="col-md-6 wthree_welcome_bottom_left_grid">
+				<div class="w3l_social_icon_gridl">
+					<img src="{% static 'images/9.png' %}" alt=" " class="img-responsive" />
+				</div>
+				<div class="w3l_social_icon_gridr">
+					<h4 class="counter">53,234</h4>
+				</div>
+				<div class="clearfix"> </div>
+				<div class="w3l_social_icon_grid_pos">
+					<label>-</label>
+				</div>
+			</div>
+			<div class="col-md-6 wthree_welcome_bottom_left_grid">
+				<div class="w3l_social_icon_gridl">
+					<img src="{% static 'images/10.png' %}" alt=" " class="img-responsive" />
+				</div>
+				<div class="w3l_social_icon_gridr">
+					<h4 class="counter">43,568</h4>
+				</div>
+				<div class="clearfix"> </div>
+				<div class="w3l_social_icon_grid_pos">
+					<label>-</label>
+				</div>
+			</div>
+			<div class="col-md-6 wthree_welcome_bottom_left_grid">
+				<div class="w3l_social_icon_gridl">
+					<img src="{% static 'images/11.png' %}" alt=" " class="img-responsive" />
+				</div>
+				<div class="w3l_social_icon_gridr">
+					<h4 class="counter">12,432</h4>
+				</div>
+				<div class="clearfix"> </div>
+				<div class="w3l_social_icon_grid_pos">
+					<label>-</label>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+		<div class="col-md-6 wthree_welcome_bottom_right">
+			<div class="agileinfo_grid">
+				<figure class="agileits_effect_moses">
+					<img src="{% static 'images/4.jpg' %}" alt=" " class="img-responsive" />
+					<figcaption>
+						<h4>Plantation <span>For Future Growth</span></h4>
+						<p>Trees exhale for us so that we can inhale them to stay alive.
+						Can we ever forget that? Let us love trees with every breath we 
+						take until we perish.</p>
+					</figcaption>			
+				</figure>
+			</div>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+<!-- //welcome-bottom -->
+<!-- news -->
+	<div class="welcome">
+		<div class="container">
+			<h3 class="agileits_w3layouts_head">Latest <span>News</span> from Sources</h3>
+			<div class="w3_agile_image">
+				<img src="{% static 'images/1.png' %}" alt=" " class="img-responsive">
+			</div>
+			<p class="agile_para">Related to our Farmers</p>
+			<div class="w3ls_news_grids">
+				{% for news in context.news1 %}
+				<div class="col-md-4 w3ls_news_grid">
+					<div class="w3layouts_news_grid">
+						<img src="{{news.news_image.url}}" alt=" " class="img-responsive" />
+						<div class="w3layouts_news_grid_pos">
+							<div class="wthree_text"><h3>{{news.news_hidden_text}}</h3></div>
+						</div>
+					</div>
+					<div class="agileits_w3layouts_news_grid">
+						<ul>
+							<li><i class="fa fa-calendar" aria-hidden="true"></i>{{news.news_date}}</li>
+							<li><i class="fa fa-user" aria-hidden="true"></i><a href="#">Admin</a></li>
+						</ul>
+						<h4><a href="#" data-toggle="modal" data-target="#myModal">{{news.news_name}}</a></h4>
+						<p>{{news.news_description}}</p>
+					</div>
+				</div>
+				{% endfor %}
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+<!-- //news -->
+<!-- newsletter -->
+	<div class="newsletter">
+		<div class="container">
+			<h3 class="agileits_w3layouts_head agileinfo_head"><span>Subscribe</span> to our newsletter</h3>
+			<div class="w3_agile_image">
+				<img src="{% static 'images/12.png' %}" alt=" " class="img-responsive">
+			</div>
+			<p class="agile_para agileits_para">To get the latest news and updates kindly subsrcibe</p>
+			<div class="w3ls_news_grids w3ls_newsletter_grids">
+				<form action="#" method="post">
+					<input name="Your Name" placeholder="Your Name" type="text" required="">
+					<input name="Your Email" placeholder="Your Email" type="email" required="">
+					<input type="submit" value="Subscribe">
+				</form>
+			</div>
+		</div>
+	</div>
+<!-- //newsletter -->
+{% endblock %}

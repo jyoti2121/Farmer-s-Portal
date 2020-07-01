@@ -1,0 +1,64 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block content %}
+<link href="{% static 'css/material-dashboard.css?v=2.1.2' %}" rel="stylesheet" />
+<!-- breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="w3layouts_breadcrumbs_left">
+            <ul>
+                <li><i class="fa fa-home" aria-hidden="true"></i><a href="index">Home</a><span>/</span></li>
+                <li><i class="fa fa-envelope-o" aria-hidden="true"></i>Add Task</li>
+            </ul>
+        </div>
+        <div class="w3layouts_breadcrumbs_right">
+            <h2>Add Tasks</h2>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<!-- //breadcrumbs -->
+<div class="welcome">
+    <div class="container">
+        <h3 class="agileits_w3layouts_head">Add <span>Tasks</span></h3>
+        <div class="w3_agile_image">
+            <img src="{% static 'images/1.png' %}" alt=" " class="img-responsive" />
+        </div>
+        <p class="agile_para"></p>
+			<div class="w3ls_news_grids">
+				<div class="col-md-8 w3_agile_mail_left">
+					<div class="agileits_mail_grid_right1 agile_mail_grid_right1">
+						<form action="add_labour" method="post">
+                            {% csrf_token %}
+                            <span>
+								<i>Labour Name</i>
+								<input type="text" name="name" placeholder="Enter Labour Name">
+							</span>
+                            <span>
+								<i>State</i>
+								<input type="text" name="state" placeholder="Enter State">
+                            </span>
+                            <span>
+								<i>City</i>
+								<input type="text" name="city" placeholder="Enter City">
+                            </span>
+                            <span>
+								<i>Role</i>
+								<input type="text" name="role" placeholder="Enter Role">
+                            </span>
+                            <span>
+								<i>Salary</i>
+								<input type="text" name="salary" placeholder="Enter Salary">
+                            </span>
+                            <span>
+							<div class="w3_submit">
+								<input type="submit" name="button" value="Submit">
+                            </div>
+						</form>
+					</div>
+                </div>
+            </div>
+    </div>
+</div>
+</div class="clearfix">
+{% endblock %}
